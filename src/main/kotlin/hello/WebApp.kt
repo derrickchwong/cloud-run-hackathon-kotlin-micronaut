@@ -47,8 +47,12 @@ class WebApp {
 
     @Post(uris = ["/", "/{+path}"])
     fun index(@Body maybeArenaUpdate: Single<ArenaUpdate>): Single<String> {
+        
         return maybeArenaUpdate.map { arenaUpdate ->
             println(arenaUpdate)
+            
+        	// TODO add your implementation here to replace the random response
+            
             listOf("F", "R", "L", "T").random()
         }
     }
